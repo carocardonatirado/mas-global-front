@@ -1,0 +1,33 @@
+<div class="container my-5">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <p class="navbar-brand">Employees</p>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <form class="form-inline my-2 my-lg-0 ml-auto">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search By Id" aria-label="Search" [(ngModel)]="employeeToFind" name="employeeToFind">
+                    <button class="btn btn-outline-primary my-2 my-sm-0" type="button" (click)="findEmployee()">Search</button>
+                </form>
+            </div>
+        </nav>
+    </div>
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Contract Type</th>
+                <th scope="col">Salary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <th scope="row">{{employee.id}}</th>
+                <td>{{employee.name}}</td>
+                <td *ngIf="employee.contractType == 0">Hourly</td>
+                <td *ngIf="employee.contractType == 1">Monthly</td>
+                <td>{{employee.salary}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
